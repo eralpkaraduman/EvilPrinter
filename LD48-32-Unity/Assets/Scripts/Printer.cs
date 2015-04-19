@@ -7,6 +7,8 @@ public class Printer : MonoBehaviour {
 	public GameObject Cursor = null;
 	public Plane CursorPlane;
 	public GameObject dragLine;
+	public GameObject body;
+	public Transform bodyPivot;
 
 	private Vector3 dragStartPos;
 	public Vector3 dragStartPosOffset = Vector3.zero;
@@ -51,6 +53,11 @@ public class Printer : MonoBehaviour {
 		Vector3 dragLineScale = dragLine.transform.localScale;
 		dragLineScale.z = Vector3.Distance(dragStartPos,mouseRes.mousePos);
 		dragLine.transform.localScale = dragLineScale;
+
+		Vector3 bodyLookTarget = body.transform.position;
+		bodyLookTarget.z = mouseRes.mousePos.z;
+		bodyLookTarget.x = mouseRes.mousePos.x;
+		bodyPivot.LookAt (bodyLookTarget);
 	}
 
 	void OnMouseDown(){
