@@ -10,14 +10,26 @@ public class Printer : MonoBehaviour {
 	public Vector3 dragStartPos = Vector3.zero;
 
 
+	private class MouseResult : Object{
+		public Vector3 mousePos;
+		public float distance;
+
+		public MouseResult(Vector3 mousePos, float distance){
+			this.mousePos = mousePos;
+			this.distance = distance;
+		}
+	}
+
 	// Use this for initialization
 	void Start () {
 		CursorPlane = new Plane (CursorPlaneObject.transform.position,Vector3.up);
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		Cursor.transform.position = MousePos ();
+		MouseResult mouseRes = this.mousePos ();
+
+		Cursor.transform.position = mouseRes.mousePos;
 	}
 
 	void OnMouseDown(){
@@ -28,22 +40,24 @@ public class Printer : MonoBehaviour {
 
 	}
 
-	Vector3 MousePos(){
+	MouseResult mousePos(){
 
-		float dist;
+		float dist = 0.0f;
 
 		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+
+		Vector3 mousePos = dragStartPos;
 
 		RaycastHit hit = new RaycastHit();
 
 		if (CursorPlaneObject.GetComponent<Collider>().Raycast (ray,out hit, 3000.0f)) {
 
-			return ray.GetPoint(hit.distance);
+			mousePos = ray.GetPoint(hit.distance);
 		}
-		return dragStartPos;
 
+		//Vector3 mousePoint = Camera.main.ScreenToViewportPoint (Input.mousePosition);
+		//return mousePoint;
 
-		Vector3 mousePoint = Camera.main.ScreenToViewportPoint (Input.mousePosition);
-		return mousePoint;
+		return new MouseResult (mousePos,dist);
 	}
 }
