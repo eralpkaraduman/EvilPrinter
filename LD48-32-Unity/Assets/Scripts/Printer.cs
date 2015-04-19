@@ -11,6 +11,8 @@ public class Printer : MonoBehaviour {
 	private Vector3 dragStartPos;
 	public Vector3 dragStartPosOffset = Vector3.zero;
 
+	public bool debugMouseCursorVisible = true;
+
 
 	private class MouseResult : Object{
 		public Vector3 mousePos;
@@ -29,6 +31,8 @@ public class Printer : MonoBehaviour {
 		dragStartPos = this.transform.position;
 		dragStartPos += dragStartPosOffset;
 		CursorPlane = new Plane (CursorPlaneObject.transform.position,Vector3.up);
+
+		Cursor.GetComponent<Renderer>().enabled = debugMouseCursorVisible;
 	}
 
 	// Update is called once per frame
