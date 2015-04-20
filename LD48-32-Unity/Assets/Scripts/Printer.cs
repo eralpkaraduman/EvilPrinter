@@ -41,6 +41,8 @@ public class Printer : MonoBehaviour {
 
 	private GUIStyle labelStyle;
 
+	public static Printer instance;
+
 	private class MouseResult : Object{
 		public Vector3 mousePos;
 		public float distance;
@@ -55,6 +57,8 @@ public class Printer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		Printer.instance = this;
 
 		labelStyle = new GUIStyle ();
 		labelStyle.fontSize = 20;
