@@ -16,6 +16,8 @@ public class Printer : MonoBehaviour {
 	public Transform bodyLeanPivot;
 	public PaperShooter shooter;
 
+	public GameObject introUI;
+
 	public float refillTime = 0.02f;
 
 	private float lastShootTime = 0.0f;
@@ -139,8 +141,6 @@ public class Printer : MonoBehaviour {
 			bodyLookTarget = forward;
 		}
 
-
-
 		if (dragDistance > minDragDist) {
 
 			canShoot = true;
@@ -160,10 +160,11 @@ public class Printer : MonoBehaviour {
 
 	void OnMouseDown(){
 
-		started = true;
+
 		if (!started) {
-			
+			GameObject.Destroy(introUI);
 		}
+		started = true;
 
 		if (refilling)
 			return;
