@@ -1,22 +1,17 @@
 fileFormatVersion: 2
-guid: 09ec34c3fda1944c9b316ff123731288
+guid: 7e85ce5c092044e8f90982e8ece2352b
 timeCreated: 1429489755
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: //RootNode
-    100002: printer:printer_base
-    100004: printer:printer_horns
+    100002: printer:paper
     400000: //RootNode
-    400002: printer:printer_base
-    400004: printer:printer_horns
-    2300000: printer:printer_base
-    2300002: printer:printer_horns
-    3300000: printer:printer_base
-    3300002: printer:printer_horns
-    4300000: printer:printer_base
-    4300002: printer:printer_horns
+    400002: printer:paper
+    2300000: printer:paper
+    3300000: printer:paper
+    4300000: printer:paper
   materials:
     importMaterials: 1
     materialName: 0

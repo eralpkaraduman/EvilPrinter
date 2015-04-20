@@ -1,22 +1,32 @@
 fileFormatVersion: 2
-guid: 09ec34c3fda1944c9b316ff123731288
+guid: 313e4900783854be486e4de046be9765
 timeCreated: 1429489755
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: //RootNode
-    100002: printer:printer_base
-    100004: printer:printer_horns
+    100002: printer:Chalice
+    100004: printer:Chalice1
+    100006: printer:Chalice_diamonds
+    100008: printer:Chalice_diamonds1
     400000: //RootNode
-    400002: printer:printer_base
-    400004: printer:printer_horns
-    2300000: printer:printer_base
-    2300002: printer:printer_horns
-    3300000: printer:printer_base
-    3300002: printer:printer_horns
-    4300000: printer:printer_base
-    4300002: printer:printer_horns
+    400002: printer:Chalice
+    400004: printer:Chalice1
+    400006: printer:Chalice_diamonds
+    400008: printer:Chalice_diamonds1
+    2300000: printer:Chalice
+    2300002: printer:Chalice1
+    2300004: printer:Chalice_diamonds
+    2300006: printer:Chalice_diamonds1
+    3300000: printer:Chalice
+    3300002: printer:Chalice1
+    3300004: printer:Chalice_diamonds
+    3300006: printer:Chalice_diamonds1
+    4300000: printer:Chalice
+    4300002: printer:Chalice1
+    4300004: printer:Chalice_diamonds
+    4300006: printer:Chalice_diamonds1
   materials:
     importMaterials: 1
     materialName: 0
