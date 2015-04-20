@@ -160,6 +160,11 @@ public class Printer : MonoBehaviour {
 
 	void OnMouseDown(){
 
+		started = true;
+		if (!started) {
+			
+		}
+
 		if (refilling)
 			return;
 
