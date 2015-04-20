@@ -15,7 +15,7 @@ public class Printer : MonoBehaviour {
 	public float maxDragDist = 12;
 	public float minDragDist = 2;
 
-	public float maxLean = 12;
+	public float maxLean = 15;
 
 
 	private Vector3 dragStartPos;
@@ -24,6 +24,7 @@ public class Printer : MonoBehaviour {
 	public bool debugMouseCursorVisible = true;
 
 	private bool dragging = false;
+	private bool canShoot = false;
 
 	private class MouseResult : Object{
 		public Vector3 mousePos;
@@ -72,7 +73,10 @@ public class Printer : MonoBehaviour {
 
 		float lean = 0;
 
+		canShoot = false;
+
 		if (dragging) {
+			canShoot = true;
 			lean = -percent_drag*maxLean;
 		} else {
 			Vector3 forward = bodyPivot.transform.position;
@@ -80,14 +84,23 @@ public class Printer : MonoBehaviour {
 			bodyLookTarget = forward;
 		}
 
-		dragLine.GetComponent<Renderer>().enabled = dragging;
-		bodyPivot.LookAt (bodyLookTarget);
 
-		// lean
-		Vector3 leanRotation = bodyLeanPivot.eulerAngles;
-		leanRotation.x = lean;
-		bodyLeanPivot.transform.eulerAngles = leanRotation;
 
+		if (dragDistance > minDragDist) {
+
+			canShoot = true;
+
+			dragLine.GetComponent<Renderer> ().enabled = dragging;
+			bodyPivot.LookAt (bodyLookTarget);
+
+			// lean
+			Vector3 leanRotation = bodyLeanPivot.eulerAngles;
+			leanRotation.x = lean;
+			bodyLeanPivot.transform.eulerAngles = leanRotation;
+
+		} else {
+			canShoot = false;
+		}
 	}
 
 	void OnMouseDown(){
@@ -95,6 +108,11 @@ public class Printer : MonoBehaviour {
 	}
 
 	void OnMouseUp(){
+
+		if (canShoot) {
+			print ("shoot");
+		}
+
 		dragging = false;
 	}
 
