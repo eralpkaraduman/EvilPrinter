@@ -13,6 +13,8 @@ public class Printer : MonoBehaviour {
 	public Transform bodyLeanPivot;
 	public PaperShooter shooter;
 
+	private MeshCollider cursorPlaneCollider;
+
 	public float maxDragDist = 12;
 	public float minDragDist = 2;
 
@@ -43,6 +45,9 @@ public class Printer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		cursorPlaneCollider = (MeshCollider)CursorPlaneObject.GetComponent<MeshCollider> ();
+
 		dragStartPos = this.transform.position;
 		//dragStartPos += dragStartPosOffset;
 		CursorPlane = new Plane (CursorPlaneObject.transform.position,Vector3.up);
@@ -107,10 +112,22 @@ public class Printer : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
+
+
+
+
+		print("down");
+		//mousePos().mousePos
+		cursorPlaneCollider.enabled = true;
+
 		dragging = true;
 	}
 
 	void OnMouseUp(){
+
+		cursorPlaneCollider.enabled = false;
+
+		print("up");
 
 		if (canShoot) {
 			shooter.shoot(percent_drag);
