@@ -13,6 +13,11 @@ public class Printer : MonoBehaviour {
 	public Transform bodyLeanPivot;
 	public PaperShooter shooter;
 
+	public float refillTime = 0.02f;
+
+	private float lastShootTime = 0.0f;
+	private float timeElapsed = 0.0f;
+
 	private MeshCollider cursorPlaneCollider;
 
 	public float maxDragDist = 12;
@@ -30,6 +35,9 @@ public class Printer : MonoBehaviour {
 
 	private bool dragging = false;
 	private bool canShoot = false;
+	public bool refilling = false;
+
+	private GUIStyle labelStyle;
 
 	private class MouseResult : Object{
 		public Vector3 mousePos;
@@ -46,6 +54,14 @@ public class Printer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		labelStyle = new GUIStyle ();
+		labelStyle.fontSize = 20;
+		labelStyle.fontStyle = FontStyle.Bold;
+		labelStyle.alignment = TextAnchor.MiddleCenter;
+
+		lastShootTime = 0;
+		timeElapsed = 0;
+
 		cursorPlaneCollider = (MeshCollider)CursorPlaneObject.GetComponent<MeshCollider> ();
 
 		dragStartPos = this.transform.position;
@@ -57,6 +73,16 @@ public class Printer : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
+		timeElapsed += Time.deltaTime;
+
+		print ("el "+timeElapsed+" lst " + lastShootTime + " ref " + refillTime);
+		if (timeElapsed > lastShootTime + refillTime) {
+			refilling = false;
+		} else {
+			refilling = true;
+		}
+
 		MouseResult mouseRes = this.mousePos ();
 
 		float dragDistance = Vector3.Distance(dragStartPos,mouseRes.mousePos);
@@ -113,14 +139,22 @@ public class Printer : MonoBehaviour {
 
 	void OnMouseDown(){
 
+		if (refilling)
+			return;
 
-
+		//if (!canShoot)return;
 
 		print("down");
 		//mousePos().mousePos
 		cursorPlaneCollider.enabled = true;
-
 		dragging = true;
+	}
+
+	void OnGUI() {
+		if (refilling) {
+			GUI.color = Color.red;
+			GUI.Label (new Rect (0, Screen.height-200, Screen.width, 20), "REFILLING!...", labelStyle);
+		}
 	}
 
 	void OnMouseUp(){
@@ -131,6 +165,7 @@ public class Printer : MonoBehaviour {
 
 		if (canShoot) {
 			shooter.shoot(percent_drag);
+			lastShootTime = timeElapsed;
 		}
 
 		dragging = false;
