@@ -16,6 +16,11 @@ public class PaperShooter : MonoBehaviour {
 	}
 
 	public void shoot(){
-		
+
+		GameObject paper = GameObject.Instantiate (paperPrefab);
+		paper.transform.localPosition = this.transform.position;
+		paper.transform.rotation = this.transform.rotation;
+
+
 	}
 }

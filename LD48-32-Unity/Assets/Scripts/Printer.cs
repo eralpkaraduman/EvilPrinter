@@ -11,6 +11,7 @@ public class Printer : MonoBehaviour {
 	public Transform bodyPivot;
 	public Transform cameraPivot;
 	public Transform bodyLeanPivot;
+	public PaperShooter shooter;
 
 	public float maxDragDist = 12;
 	public float minDragDist = 2;
@@ -110,7 +111,7 @@ public class Printer : MonoBehaviour {
 	void OnMouseUp(){
 
 		if (canShoot) {
-			print ("shoot");
+			shooter.shoot();
 		}
 
 		dragging = false;
