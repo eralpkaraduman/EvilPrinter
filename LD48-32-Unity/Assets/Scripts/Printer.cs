@@ -3,6 +3,9 @@ using System.Collections;
 
 public class Printer : MonoBehaviour {
 
+	public static int maxKillCount = 30;
+	public static float maxKillTime = 25.0f;
+
 	public GameObject CursorPlaneObject = null;
 	public GameObject Cursor = null;
 	public Plane CursorPlane;
@@ -22,6 +25,8 @@ public class Printer : MonoBehaviour {
 
 	public float maxDragDist = 12;
 	public float minDragDist = 2;
+
+	public bool started = false;
 
 	public float maxLean = 15;
 
@@ -80,7 +85,18 @@ public class Printer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		timeElapsed += Time.deltaTime;
+		if(started)timeElapsed += Time.deltaTime;
+
+		// check game
+
+		if (timeElapsed >= maxKillTime) {
+			if(killCount>=maxKillCount){
+				print("WIN");
+			}else{
+				print("LUN");
+			}
+			return;
+		}
 
 		if (timeElapsed > lastShootTime + refillTime) {
 			refilling = false;
@@ -149,7 +165,7 @@ public class Printer : MonoBehaviour {
 
 		//if (!canShoot)return;
 
-		print("down");
+
 		//mousePos().mousePos
 		cursorPlaneCollider.enabled = true;
 		dragging = true;
@@ -171,7 +187,7 @@ public class Printer : MonoBehaviour {
 
 		cursorPlaneCollider.enabled = false;
 
-		print("up");
+
 
 		if (canShoot) {
 			shooter.shoot(percent_drag);

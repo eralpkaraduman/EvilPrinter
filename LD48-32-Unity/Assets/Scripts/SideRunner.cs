@@ -7,6 +7,7 @@ public class SideRunner : MonoBehaviour {
 	public float startDistance = 50.0f;
 	public bool directionRight = true;
 	public Transform spriteTransform;
+	public GameObject deathEffectPrefab;
 
 	private float startPos;
 	private float endPos;
@@ -24,6 +25,20 @@ public class SideRunner : MonoBehaviour {
 		}
 
 		//Reset ();
+	}
+
+	void OnCollisionEnter(Collision collision) {
+		if (collision.gameObject.tag == "Paper") {
+			//GameObject deathEffect = GameObject.Instantiate<GameObject>(deathEffectPrefab);
+			//deathEffect.transform.position = this.transform.position;
+			GameObject.Destroy(this.gameObject);
+
+			Printer.instance.killCount++;
+
+			//Reset();
+
+		}
+
 	}
 
 	void Reset(){
