@@ -3,8 +3,8 @@ using System.Collections;
 
 public class PaperShooter : MonoBehaviour {
 
-	public float maxForce = 2200;
-	public float minForce = 800;
+	public float maxForce = 1650;
+	public float minForce = 500;
 
 	public GameObject paperPrefab;
 
