@@ -27,6 +27,8 @@ public class Printer : MonoBehaviour {
 
 	float percent_drag = 0;
 
+	public int killCount = 0;
+
 
 	private Vector3 dragStartPos;
 	//public Vector3 dragStartPosOffset = Vector3.zero;
@@ -76,7 +78,6 @@ public class Printer : MonoBehaviour {
 
 		timeElapsed += Time.deltaTime;
 
-		print ("el "+timeElapsed+" lst " + lastShootTime + " ref " + refillTime);
 		if (timeElapsed > lastShootTime + refillTime) {
 			refilling = false;
 		} else {
@@ -151,10 +152,15 @@ public class Printer : MonoBehaviour {
 	}
 
 	void OnGUI() {
+
+		GUI.color = Color.red;
+
 		if (refilling) {
-			GUI.color = Color.red;
+
 			GUI.Label (new Rect (0, Screen.height-200, Screen.width, 20), "REFILLING!...", labelStyle);
 		}
+
+		GUI.Label (new Rect (0, 0, Screen.width, 30), "time: " + Mathf.Round(timeElapsed) + ", kill: " + killCount,labelStyle);
 	}
 
 	void OnMouseUp(){
