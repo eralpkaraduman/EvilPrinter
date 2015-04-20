@@ -18,6 +18,8 @@ public class Printer : MonoBehaviour {
 
 	public float maxLean = 15;
 
+	float percent_drag = 0;
+
 
 	private Vector3 dragStartPos;
 	//public Vector3 dragStartPosOffset = Vector3.zero;
@@ -54,7 +56,7 @@ public class Printer : MonoBehaviour {
 
 		float dragDistance = Vector3.Distance(dragStartPos,mouseRes.mousePos);
 
-		float percent_drag = (dragDistance - minDragDist) / (maxDragDist - minDragDist);
+		percent_drag = (dragDistance - minDragDist) / (maxDragDist - minDragDist);
 		percent_drag = Mathf.Max (0, percent_drag);
 		percent_drag = Mathf.Min (1, percent_drag);
 
@@ -111,7 +113,7 @@ public class Printer : MonoBehaviour {
 	void OnMouseUp(){
 
 		if (canShoot) {
-			shooter.shoot();
+			shooter.shoot(percent_drag);
 		}
 
 		dragging = false;
