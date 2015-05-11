@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Printer : MonoBehaviour {
 
-	public static int maxKillCount = 30;
-	public static float maxKillTime = 25.0f;
+	public static int maxKillCount = 25;
+	public static float maxKillTime = 30.0f;
 
 	public GameObject CursorPlaneObject = null;
 	public GameObject Cursor = null;
