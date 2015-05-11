@@ -92,11 +92,14 @@ public class Printer : MonoBehaviour {
 		// check game
 
 		if (timeElapsed >= maxKillTime) {
-			if(killCount>=maxKillCount){
-				print("WIN");
-			}else{
-				print("LUN");
+			if (killCount >= maxKillCount) {
+				Application.LoadLevel ("WIN");
+			} else {
+				Application.LoadLevel ("Lost");
 			}
+			return;
+		} else if (killCount >= maxKillCount) {
+			Application.LoadLevel ("WIN");
 			return;
 		}
 
