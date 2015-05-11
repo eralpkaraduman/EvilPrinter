@@ -4,10 +4,10 @@ using System.Collections;
 public class EndGameWin : MonoBehaviour {
 	
 	private GUIStyle labelStyle;
-	
+	private float canClickTime;
 	// Use this for initialization
 	void Start () {
-		
+		canClickTime = Time.time + 2f;
 	}
 	
 	// Update is called once per frame
@@ -17,7 +17,7 @@ public class EndGameWin : MonoBehaviour {
 		labelStyle.fontStyle = FontStyle.Bold;
 		labelStyle.alignment = TextAnchor.MiddleCenter;
 
-		if(Input.GetMouseButtonDown(0)){
+		if(Input.GetMouseButtonDown(0) && Time.time>canClickTime){
 			Application.LoadLevel("Game");
 		}
 	}
