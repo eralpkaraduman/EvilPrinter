@@ -189,7 +189,7 @@ public class Printer : MonoBehaviour {
 			GUI.Label (new Rect (0, Screen.height-200, Screen.width, 20), "REFILLING!...", labelStyle);
 		}
 
-		GUI.Label (new Rect (0, 0, Screen.width, 30), "time: " + Mathf.Round(timeElapsed) + ", kill: " + killCount,labelStyle);
+		GUI.Label (new Rect (0, 0, Screen.width, 30), "time: " + (Printer.maxKillTime - Mathf.Round(timeElapsed)) + ", eliminated: " + killCount+" / "+Printer.maxKillCount,labelStyle);
 	}
 
 	void OnMouseUp(){
