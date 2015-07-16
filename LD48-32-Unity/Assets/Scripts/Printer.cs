@@ -180,6 +180,7 @@ public class Printer : MonoBehaviour {
 		dragging = true;
 	}
 
+	/*
 	void OnGUI() {
 
 		GUI.color = Color.red;
@@ -191,6 +192,7 @@ public class Printer : MonoBehaviour {
 
 		GUI.Label (new Rect (0, 0, Screen.width, 30), "time: " + (Printer.maxKillTime - Mathf.Round(timeElapsed)) + ", eliminated: " + killCount+" / "+Printer.maxKillCount,labelStyle);
 	}
+	*/
 
 	void OnMouseUp(){
 
