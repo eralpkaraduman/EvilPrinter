@@ -91,6 +91,8 @@ public class Printer : MonoBehaviour {
 
 		// check game
 
+		/*
+
 		if (timeElapsed >= maxKillTime) {
 			if (killCount >= maxKillCount) {
 				Application.LoadLevel ("WIN");
@@ -102,6 +104,8 @@ public class Printer : MonoBehaviour {
 			Application.LoadLevel ("WIN");
 			return;
 		}
+
+		*/
 
 		if (timeElapsed > lastShootTime + refillTime) {
 			refilling = false;
