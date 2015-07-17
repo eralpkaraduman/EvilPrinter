@@ -10,7 +10,7 @@ public class GameCamera : MonoBehaviour {
 	private float maxStrifeAngle = 6;
 
 	void Awake() {
-		Application.targetFrameRate = 60;
+		Application.targetFrameRate = -1;
 	}
 
 	void Start () {
