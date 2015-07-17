@@ -25,8 +25,8 @@ public class Printer : MonoBehaviour {
 
 	private MeshCollider cursorPlaneCollider;
 
-	public float maxDragDist = 12;
-	public float minDragDist = 2;
+	private float maxDragDist = 16;
+	private float minDragDist = 2;
 
 	public bool started = false;
 
@@ -113,59 +113,74 @@ public class Printer : MonoBehaviour {
 			refilling = true;
 		}
 
-		MouseResult mouseRes = this.mousePos ();
+		MouseResult mouseRes = this.getMouseResult();
 
-		float dragDistance = Vector3.Distance(dragStartPos,mouseRes.mousePos);
+        Vector3 dragPos = mouseRes.mousePos;
+        float dragDistance = Vector3.Distance(dragStartPos,dragPos);
+
+        // clamp to max
+        if(dragDistance>maxDragDist) {
+			Vector3 dragVector = dragPos - dragStartPos;
+            dragPos = dragStartPos + (dragVector.normalized * maxDragDist);
+            dragDistance = maxDragDist;
+		}
 
 		percent_drag = (dragDistance - minDragDist) / (maxDragDist - minDragDist);
 		percent_drag = Mathf.Max (0, percent_drag);
 		percent_drag = Mathf.Min (1, percent_drag);
 
+		Debug.Log ("drag " + percent_drag);
+
 		// dragline
-		Cursor.transform.position = mouseRes.mousePos;
-		Vector3 mid = (mouseRes.mousePos -dragStartPos)/2;
+
+		Cursor.transform.position = dragPos;
+		Vector3 mid = (dragPos -dragStartPos)/2;
 		dragLine.transform.localPosition = mid;
 		dragLine.transform.LookAt (dragStartPos);
 		Vector3 dragLineScale = dragLine.transform.localScale;
 		dragLineScale.z = dragDistance;
 		dragLine.transform.localScale = dragLineScale;
 
-		// aim
-		Vector3 bodyLookTarget = body.transform.position;
-		bodyLookTarget.z = mouseRes.mousePos.z;
-		bodyLookTarget.x = mouseRes.mousePos.x;
+
 
 		float lean = 0;
 
 		canShoot = false;
 
-		if (dragging) {
-			canShoot = true;
-			lean = -percent_drag*maxLean;
+        Vector3 bodyLookTarget = body.transform.position;
+
+		if (dragging && dragDistance > minDragDist) {
+
+            canShoot = true;
+
+            // lean
+            lean = -percent_drag*maxLean;
+            Vector3 leanRotation = bodyLeanPivot.eulerAngles;
+            leanRotation.x = lean;
+            bodyLeanPivot.transform.eulerAngles = leanRotation;
+
+            //aim
+            bodyLookTarget.z = dragPos.z;
+            bodyLookTarget.x = dragPos.x;
+
 		} else {
+
+            canShoot = false;
+
+            // reset aim
 			Vector3 forward = bodyPivot.transform.position;
 			forward.z -= 10;
 			bodyLookTarget = forward;
+
 		}
 
-		if (dragDistance > minDragDist) {
-
-			canShoot = true;
-
-			dragLine.GetComponent<Renderer> ().enabled = dragging;
-			bodyPivot.LookAt (bodyLookTarget);
-
-			// lean
-			Vector3 leanRotation = bodyLeanPivot.eulerAngles;
-			leanRotation.x = lean;
-			bodyLeanPivot.transform.eulerAngles = leanRotation;
-
-		} else {
-			canShoot = false;
-		}
+        bodyPivot.LookAt(bodyLookTarget);
+        dragLine.GetComponent<Renderer> ().enabled = canShoot;
 	}
 
-	void OnMouseDown(){
+
+
+    void OnMouseDown(){
 
 
 		if (!started) {
@@ -212,7 +227,7 @@ public class Printer : MonoBehaviour {
 		dragging = false;
 	}
 
-	MouseResult mousePos(){
+	MouseResult getMouseResult(){
 
 		float dist = 0.0f;
 
