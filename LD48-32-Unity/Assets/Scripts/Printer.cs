@@ -12,7 +12,6 @@ public class Printer : MonoBehaviour {
 	public GameObject dragLine;
 	public GameObject body;
 	public Transform bodyPivot;
-	public Transform cameraPivot;
 	public Transform bodyLeanPivot;
 	public PaperShooter shooter;
 
@@ -132,8 +131,6 @@ public class Printer : MonoBehaviour {
 		percent_drag = Mathf.Max (0, percent_drag);
 		percent_drag = Mathf.Min (1, percent_drag);
 
-		Debug.Log ("drag " + percent_drag);
-
 		// dragline
 
 		Cursor.transform.position = dragPos;
@@ -190,7 +187,6 @@ public class Printer : MonoBehaviour {
 		leanRotation_euler.x = lean;
 		Quaternion leanRotation = Quaternion.Euler (leanRotation_euler);
 		bodyLeanPivot.rotation = Quaternion.Lerp(bodyLeanPivot.rotation , leanRotation, Time.deltaTime * smoothSpeed);
-
 
 		//bodyLeanPivot.transform.eulerAngles = leanRotation;
 
