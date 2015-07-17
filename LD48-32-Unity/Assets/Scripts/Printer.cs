@@ -28,6 +28,9 @@ public class Printer : MonoBehaviour {
 	private float maxDragDist = 16;
 	private float minDragDist = 2;
 
+	private float minRotationSpeed = 4;
+	private float maxRotationSpeed = 16;
+
 	public bool started = false;
 
 	public float maxLean = 15;
@@ -141,46 +144,56 @@ public class Printer : MonoBehaviour {
 		dragLineScale.z = dragDistance;
 		dragLine.transform.localScale = dragLineScale;
 
-
-
-		float lean = 12;
-
+		float smoothSpeed = minRotationSpeed;
+		float lean = 0;
 		canShoot = false;
+		Vector3 bodyLookTarget = body.transform.position;
 
-        Vector3 bodyLookTarget = body.transform.position;
-
-        float smoothSpeed = 1;
-
-		if (dragging && dragDistance > minDragDist) {
+        if (dragging && dragDistance > minDragDist) {
 
             canShoot = true;
 
             // lean
             lean = -percent_drag*maxLean;
-            Vector3 leanRotation = bodyLeanPivot.eulerAngles;
-            leanRotation.x = lean;
-            bodyLeanPivot.transform.eulerAngles = leanRotation;
+            
 
             //aim
             bodyLookTarget.z = dragPos.z;
             bodyLookTarget.x = dragPos.x;
-            smoothSpeed = 12;
+            smoothSpeed = maxRotationSpeed;
 
 		} else {
 
             canShoot = false;
 
+			//lean
+			lean = 0;
+
             // reset aim
 			Vector3 forward = bodyPivot.transform.position;
 			forward.z -= 10;
 			bodyLookTarget = forward;
-            smoothSpeed = 2;
+			smoothSpeed = minRotationSpeed;
 
 		}
 
+
+		dragLine.GetComponent<Renderer> ().enabled = canShoot;
+
+		// aim look
         Quaternion lookDirection = Quaternion.LookRotation(bodyLookTarget - bodyPivot.transform.position,Vector3.up);
         bodyPivot.transform.rotation = Quaternion.Lerp(bodyPivot.transform.rotation , lookDirection, Time.deltaTime * smoothSpeed);
-        dragLine.GetComponent<Renderer> ().enabled = canShoot;
+        
+
+		// lean
+		Vector3 leanRotation_euler = bodyLeanPivot.eulerAngles;
+		leanRotation_euler.x = lean;
+		Quaternion leanRotation = Quaternion.Euler (leanRotation_euler);
+		bodyLeanPivot.rotation = Quaternion.Lerp(bodyLeanPivot.rotation , leanRotation, Time.deltaTime * smoothSpeed);
+
+
+		//bodyLeanPivot.transform.eulerAngles = leanRotation;
+
 
 	}
 
