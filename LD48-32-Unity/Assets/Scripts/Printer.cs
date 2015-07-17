@@ -18,7 +18,7 @@ public class Printer : MonoBehaviour {
 
 	public GameObject introUI;
 
-	public float refillTime = 0.02f;
+	private float refillTime = /*0.02f*/0.0f;
 
 	private float lastShootTime = 0.0f;
 	private float timeElapsed = 0.0f;
@@ -26,12 +26,12 @@ public class Printer : MonoBehaviour {
 	private MeshCollider cursorPlaneCollider;
 
 	private float maxDragDist = 16;
-	private float minDragDist = 2;
+	private float minDragDist = 4.10f;
 
 	private float minRotationSpeed = 4;
 	private float maxRotationSpeed = 16;
 
-	public bool started = false;
+	private bool started = true;
 
 	public float maxLean = 15;
 
@@ -46,7 +46,7 @@ public class Printer : MonoBehaviour {
 	public bool debugMouseCursorVisible = true;
 
 	private bool dragging = false;
-	private bool canShoot = false;
+	private bool canShoot = true;
 	public bool refilling = false;
 
 	private GUIStyle labelStyle;
