@@ -143,11 +143,13 @@ public class Printer : MonoBehaviour {
 
 
 
-		float lean = 0;
+		float lean = 12;
 
 		canShoot = false;
 
         Vector3 bodyLookTarget = body.transform.position;
+
+        float smoothSpeed = 1;
 
 		if (dragging && dragDistance > minDragDist) {
 
@@ -162,6 +164,7 @@ public class Printer : MonoBehaviour {
             //aim
             bodyLookTarget.z = dragPos.z;
             bodyLookTarget.x = dragPos.x;
+            smoothSpeed = 12;
 
 		} else {
 
@@ -171,11 +174,14 @@ public class Printer : MonoBehaviour {
 			Vector3 forward = bodyPivot.transform.position;
 			forward.z -= 10;
 			bodyLookTarget = forward;
+            smoothSpeed = 2;
 
 		}
 
-        bodyPivot.LookAt(bodyLookTarget);
+        Quaternion lookDirection = Quaternion.LookRotation(bodyLookTarget - bodyPivot.transform.position,Vector3.up);
+        bodyPivot.transform.rotation = Quaternion.Lerp(bodyPivot.transform.rotation , lookDirection, Time.deltaTime * smoothSpeed);
         dragLine.GetComponent<Renderer> ().enabled = canShoot;
+
 	}
 
 
