@@ -9,12 +9,15 @@ public class GameCamera : MonoBehaviour {
 	private float maxBodyRotaionMoveAngle = 35;
 	private float maxStrifeAngle = 6;
 
-	// Use this for initialization
+	void Awake() {
+		Application.targetFrameRate = 60;
+	}
+
 	void Start () {
 	
 	}
 	
-	// Update is called once per frame
+
 	void Update () {
 
 		float normalizedAngle = printerBodyPivot.rotation.eulerAngles.y - 180;
