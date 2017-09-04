@@ -10,7 +10,7 @@ GameObject:
   - component: {fileID: 482320}
   - component: {fileID: 11470886}
   - component: {fileID: 5441386}
-  - component: {fileID: 13698062}
+  - component: {fileID: 65808734944643276}
   m_Layer: 0
   m_Name: Siderunner
   m_TagString: Untagged
@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.3, y: 0, z: -151}
+  m_LocalPosition: {x: 0.7, y: 0, z: -308.5}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 400792}
@@ -77,7 +77,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!95 &9586054
 Animator:
   serializedVersion: 3
@@ -105,7 +105,7 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: dd329d6fc32fe8e46b5f00bf15ffdc2e, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 95143e035ec034d7587544c0fb9ea005, type: 2}
+  - {fileID: 0}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -126,19 +126,6 @@ MonoBehaviour:
   directionRight: 1
   spriteTransform: {fileID: 400792}
   deathEffectPrefab: {fileID: 105062, guid: 81a4abea65a7eb24ab0826973662d6bd, type: 2}
---- !u!136 &13698062
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 105062}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.22
-  m_Height: 1.8
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.6, z: 0}
 --- !u!212 &21236432
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -192,3 +179,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 105062}
   m_IsPrefabParent: 1
+--- !u!65 &65808734944643276
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105062}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.57, y: 4.25, z: 1}
+  m_Center: {x: 0.05, y: 2.17, z: 0}
