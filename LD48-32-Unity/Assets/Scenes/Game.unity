@@ -2711,7 +2711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxForce: 1650
   minForce: 450
-  paperPrefab: {fileID: 100008, guid: 66008469952434a40b4c7c016fdbd229, type: 3}
+  paperPrefab: {fileID: 147734, guid: 389d314ff4e084013954fe9247997361, type: 2}
 --- !u!1 &1049046293
 GameObject:
   m_ObjectHideFlags: 0
