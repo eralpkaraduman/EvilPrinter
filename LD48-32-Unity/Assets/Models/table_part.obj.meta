@@ -13,7 +13,7 @@ ModelImporter:
     3300000: bacak23:pCube4_bacak23:polySurface17_table_part
     4300000: bacak23:pCube4_bacak23:polySurface17_table_part
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:

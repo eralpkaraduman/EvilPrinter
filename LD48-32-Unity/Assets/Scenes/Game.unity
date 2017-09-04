@@ -336,7 +336,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 72f2da1b50fa544838ee87ca31b0a61d, type: 2}
+  - {fileID: 2100000, guid: 132cbabd68b6e492ca1062c469ba59fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -506,7 +506,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 72f2da1b50fa544838ee87ca31b0a61d, type: 2}
+  - {fileID: 2100000, guid: 132cbabd68b6e492ca1062c469ba59fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1096,7 +1096,7 @@ GameObject:
   - component: {fileID: 635489757}
   - component: {fileID: 635489756}
   m_Layer: 0
-  m_Name: fire_001 (1)
+  m_Name: Chalice_fire_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1372,13 +1372,13 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.38
-  m_Range: 40.76
-  m_SpotAngle: 79.9
+  m_Color: {r: 1, g: 0.729716, b: 0.52205884, a: 1}
+  m_Intensity: 1.5
+  m_Range: 50
+  m_SpotAngle: 80
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1419,13 +1419,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 801233198}
-  m_LocalRotation: {x: 0.6405513, y: -0.013146517, z: -0.0077155647, w: 0.76776415}
+  m_LocalRotation: {x: 0.51390564, y: -0.014182895, z: -0.0055862656, w: 0.85771126}
   m_LocalPosition: {x: 0, y: 30, z: -406.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 61.813004, y: -3.65, z: -2.9320002}
 --- !u!1 &847509908
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,7 +1470,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 81885c875940d44c58423510b3998edb, type: 2}
+  - {fileID: 2100000, guid: 930a0f7a407b44233869f9c7eb71dd23, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1555,7 +1555,7 @@ Prefab:
     - target: {fileID: 2300000, guid: 7e85ce5c092044e8f90982e8ece2352b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 38b6e1dce6712435c8e77aa3e9c16d82, type: 2}
+      objectReference: {fileID: 2100000, guid: 95cc32b833c7144be8add234503973b1, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e85ce5c092044e8f90982e8ece2352b, type: 3}
   m_IsPrefabParent: 0
@@ -1775,7 +1775,7 @@ GameObject:
   - component: {fileID: 982634051}
   - component: {fileID: 982634050}
   m_Layer: 0
-  m_Name: floor
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1794,7 +1794,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: d08fe4acc0d5d44fd947b738c282fea1, type: 2}
+  - {fileID: 2100000, guid: 4ad464f657b24434db5cb9f4ab25da73, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1839,7 +1839,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 982634049}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.9}
   m_LocalScale: {x: 1000, y: 1, z: 1000}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2055,7 +2055,7 @@ GameObject:
   - component: {fileID: 1211164875}
   - component: {fileID: 1211164874}
   m_Layer: 0
-  m_Name: fire_001
+  m_Name: Chalice_fire_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2769,6 +2769,14 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -179.99998
       objectReference: {fileID: 0}
+    - target: {fileID: 2300002, guid: 09ec34c3fda1944c9b316ff123731288, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8d7b89e44abc24a97bcd48cc8ed64456, type: 2}
+    - target: {fileID: 2300000, guid: 09ec34c3fda1944c9b316ff123731288, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c9c8746412a1649039728aa7fc4132a4, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09ec34c3fda1944c9b316ff123731288, type: 3}
   m_IsPrefabParent: 0
@@ -4037,7 +4045,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 81885c875940d44c58423510b3998edb, type: 2}
+  - {fileID: 2100000, guid: 930a0f7a407b44233869f9c7eb71dd23, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4310,7 +4318,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1927392445}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.28414, y: -3.34, z: -308}
+  m_LocalPosition: {x: 0.28414, y: -3.34, z: -302.8}
   m_LocalScale: {x: 6.910983, y: 6.9109783, z: 6.9109783}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4580,7 +4588,7 @@ Prefab:
     - target: {fileID: 2300000, guid: 7e85ce5c092044e8f90982e8ece2352b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 38b6e1dce6712435c8e77aa3e9c16d82, type: 2}
+      objectReference: {fileID: 2100000, guid: 95cc32b833c7144be8add234503973b1, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e85ce5c092044e8f90982e8ece2352b, type: 3}
   m_IsPrefabParent: 0

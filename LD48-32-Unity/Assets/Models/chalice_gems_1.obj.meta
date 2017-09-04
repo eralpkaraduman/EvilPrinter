@@ -18,7 +18,7 @@ ModelImporter:
     4300000: Chalice_gems_1_Chalice_GRP_1
     4300002: Chalice_gems_1_Chalice_GRP_2
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
