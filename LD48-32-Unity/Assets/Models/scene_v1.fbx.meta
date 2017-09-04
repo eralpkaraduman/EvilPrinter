@@ -1,17 +1,67 @@
 fileFormatVersion: 2
-guid: 7e85ce5c092044e8f90982e8ece2352b
-timeCreated: 1429489755
+guid: 66008469952434a40b4c7c016fdbd229
+timeCreated: 1504554622
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: printer:paper
-    400000: //RootNode
-    400002: printer:paper
-    2300000: printer:paper
-    3300000: printer:paper
-    4300000: printer:paper
+    100000: Chalice
+    100002: Chalice_gems_red
+    100004: Chalice_gems_yellow
+    100006: Floor
+    100008: Paper
+    100010: Printer
+    100012: Printer_horns
+    100014: //RootNode
+    100016: Table_cloth
+    100018: Table_legs
+    100020: Table_surface
+    100022: Wall
+    400000: Chalice
+    400002: Chalice_gems_red
+    400004: Chalice_gems_yellow
+    400006: Floor
+    400008: Paper
+    400010: Printer
+    400012: Printer_horns
+    400014: //RootNode
+    400016: Table_cloth
+    400018: Table_legs
+    400020: Table_surface
+    400022: Wall
+    2300000: Chalice
+    2300002: Chalice_gems_red
+    2300004: Chalice_gems_yellow
+    2300006: Floor
+    2300008: Paper
+    2300010: Printer
+    2300012: Printer_horns
+    2300014: Table_cloth
+    2300016: Table_legs
+    2300018: Table_surface
+    2300020: Wall
+    3300000: Chalice
+    3300002: Chalice_gems_red
+    3300004: Chalice_gems_yellow
+    3300006: Floor
+    3300008: Paper
+    3300010: Printer
+    3300012: Printer_horns
+    3300014: Table_cloth
+    3300016: Table_legs
+    3300018: Table_surface
+    3300020: Wall
+    4300000: Paper
+    4300002: Chalice_gems_red
+    4300004: Chalice
+    4300006: Printer
+    4300008: Printer_horns
+    4300010: Table_cloth
+    4300012: Table_surface
+    4300014: Table_legs
+    4300016: Wall
+    4300018: Floor
+    4300020: Chalice_gems_yellow
   materials:
     importMaterials: 0
     materialName: 0
@@ -51,7 +101,7 @@ ModelImporter:
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
-    weldVertices: 1
+    weldVertices: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -59,10 +109,10 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 1
-    tangentImportMode: 4
-    normalCalculationMode: 0
-  importAnimation: 1
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -79,7 +129,7 @@ ModelImporter:
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
-    skeletonHasParents: 0
+    skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0
   humanoidOversampling: 1
