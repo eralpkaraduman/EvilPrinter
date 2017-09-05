@@ -125,7 +125,8 @@ MonoBehaviour:
   startDistance: 50
   directionRight: 1
   spriteTransform: {fileID: 400792}
-  deathEffectPrefab: {fileID: 105062, guid: 81a4abea65a7eb24ab0826973662d6bd, type: 2}
+  deathEffectPrefab: {fileID: 1771955181801094, guid: 5a3ff0fb4f1dc46098d088602940d7d4,
+    type: 2}
 --- !u!212 &21236432
 SpriteRenderer:
   m_ObjectHideFlags: 1

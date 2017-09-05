@@ -29,17 +29,14 @@ public class SideRunner : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision) {
 		if (collision.gameObject.tag == "Paper") {
-//			GameObject deathEffect = GameObject.Instantiate<GameObject>(deathEffectPrefab);
-//			deathEffect.transform.position = this.transform.position;
-
-//			GameObject.Destroy(this.gameObject);
+			GameObject deathEffect = GameObject.Instantiate (deathEffectPrefab);
+			deathEffect.transform.position = collision.transform.position;
 
 			GameObject.Destroy (collision.gameObject);
 
 			Printer.instance.killCount++;
 
 			Reset();
-
 		}
 
 	}
