@@ -5,6 +5,11 @@ public class PaperShooter : MonoBehaviour {
 
 	public float maxForce = 1650;
 	public float minForce = 500;
+	public AudioSource motorAudioSource;
+	public AudioClip[] motorSounds;
+
+	public AudioSource shootAudioSource;
+
 
 	public GameObject paperPrefab;
 
@@ -28,6 +33,10 @@ public class PaperShooter : MonoBehaviour {
 		Rigidbody r = (Rigidbody)paper.GetComponent(typeof(Rigidbody));
 		r.AddRelativeForce (Vector3.forward * forceMultiplier);
 
+		int soundIndex = Random.Range (0, motorSounds.Length);
+		motorAudioSource.clip = motorSounds [soundIndex];
+		motorAudioSource.PlayDelayed (0.2f);
 
+		shootAudioSource.Play ();
 	}
 }
